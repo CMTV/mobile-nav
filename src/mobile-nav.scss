@@ -1,0 +1,68 @@
+/**
+ * Mobile navigation library. jQuery required!
+ *
+ * @author CMTV
+ */
+
+$nav-height: 65px;
+
+$nav-item-selected: (
+		background: #DCF4E3,
+		color: #00AC35
+);
+
+nav {
+	width: 100%;
+	height: $nav-height;
+
+	box-sizing: border-box;
+
+	display: flex;
+
+	.nav-sep {
+		width: 1px;
+		height: 100%;
+
+		background: #ebebeb;
+		border-bottom: 1px solid #ebebeb;
+	}
+
+	.nav-item {
+		height: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		flex-grow: 1;
+
+		transition: background 0.15s, color 0.15s, border-bottom-color 0.15s;
+
+		border-bottom: 1px solid #ebebeb;
+
+		&.selected, &:focus, &:active {
+			background: map_get($nav-item-selected, background);
+			color: map_get($nav-item-selected, color);
+			border-bottom: 1px solid map_get($nav-item-selected, color);
+		}
+	}
+}
+
+.site-pages {
+	box-sizing: border-box;
+
+	position: relative;
+
+	overflow-x: hidden;
+
+	.inner {
+		position: absolute;
+		display: flex;
+
+		transition: left 0.3s;
+
+		.page {
+			width: 100%;
+		}
+	}
+}
